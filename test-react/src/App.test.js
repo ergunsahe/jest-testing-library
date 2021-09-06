@@ -1,4 +1,4 @@
-import { screen, render } from "@testing-library/react";
+import { screen, render, cleanup } from "@testing-library/react";
 import App from './App'
 
 // test('Header render correctly', () =>{
@@ -25,6 +25,8 @@ import App from './App'
 
 // })
 
+//--------------------------------------------------------------
+
 // test('Header render correctly', () =>{
 //     render(<App/>)
 //     const headerEl = screen.getByText(/coding with eyüp/i);
@@ -41,6 +43,9 @@ import App from './App'
 //     expect(yellowEl).toHaveClass('yellow');
 
 // })
+
+
+//--------------------------------------------------------------
 
 // test('Disabled Button test', () =>{
 //     render(<App/>)
@@ -60,21 +65,63 @@ import App from './App'
 //     expect(buttonEl).toHaveTextContent('Enabled')
 //     expect(buttonEl).not.toBeDisabled()
 // })
-test('Disabled Button test', () =>{
+
+//--------------------------------------------------------------
+
+// test('Disabled Button test', () =>{
+//     render(<App/>)
+//     const buttonEl = screen.getByTestId('btnDisabled',{
+//         name:'disabled',
+//     })
+//     // expect(buttonEl).toHaveTextContent('Click')
+//     expect(buttonEl).toHaveTextContent('Disabled')
+//     expect(buttonEl).toBeDisabled()
+// })
+// test('Enabled Button test', () =>{
+//     render(<App/>)
+//     const buttonEl = screen.getByTestId('btnEnabled',{
+//         name:'enabled',
+//     })
+//     // expect(buttonEl).toHaveTextContent('Click')
+//     expect(buttonEl).toHaveTextContent('Enabled')
+//     expect(buttonEl).not.toBeDisabled()
+// })
+
+//--------------------------------------------------------------
+
+beforeAll(() =>{
+    console.log('Before All')
+})
+
+beforeEach(() =>{
+    // we can only one time call render app then it work for all test bo
+    console.log('Before Each')
     render(<App/>)
+})
+
+afterAll(() =>{
+    console.log('After All')
+})
+
+afterEach(() =>{
+    console.log('After Each')
+    // it's not necessary to call cleanup here anymore.it works automaticly
+    // cleanup()
+})
+
+test('Disabled Button test', () =>{
+    
     const buttonEl = screen.getByTestId('btnDisabled',{
         name:'disabled',
     })
-    // expect(buttonEl).toHaveTextContent('Click')
     expect(buttonEl).toHaveTextContent('Disabled')
     expect(buttonEl).toBeDisabled()
 })
 test('Enabled Button test', () =>{
-    render(<App/>)
+    
     const buttonEl = screen.getByTestId('btnEnabled',{
         name:'enabled',
     })
-    // expect(buttonEl).toHaveTextContent('Click')
     expect(buttonEl).toHaveTextContent('Enabled')
     expect(buttonEl).not.toBeDisabled()
 })
