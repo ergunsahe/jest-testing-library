@@ -25,26 +25,56 @@ import App from './App'
 
 // })
 
-test('Header render correctly', () =>{
+// test('Header render correctly', () =>{
+//     render(<App/>)
+//     const headerEl = screen.getByText(/coding with eyüp/i);
+//     // console.log(headerEl)
+//     expect(headerEl).toBeInTheDocument();
+//     expect(headerEl).toHaveTextContent('Coding With Eyüp');
+// })
+
+// test('Second header render correctly', () =>{
+//     render(<App/>)
+//     const yellowEl = screen.getByText(/benim rengim sarı/i)
+//     expect(yellowEl).toBeInTheDocument();
+//     expect(yellowEl).toHaveTextContent('Benim rengim sarı');
+//     expect(yellowEl).toHaveClass('yellow');
+
+// })
+
+// test('Disabled Button test', () =>{
+//     render(<App/>)
+//     const buttonEl = screen.getByRole('button',{
+//         name:'disabled',
+//     })
+//     // expect(buttonEl).toHaveTextContent('Click')
+//     expect(buttonEl).toHaveTextContent('Disabled')
+//     expect(buttonEl).toBeDisabled()
+// })
+// test('Enabled Button test', () =>{
+//     render(<App/>)
+//     const buttonEl = screen.getByRole('button',{
+//         name:'enabled',
+//     })
+//     // expect(buttonEl).toHaveTextContent('Click')
+//     expect(buttonEl).toHaveTextContent('Enabled')
+//     expect(buttonEl).not.toBeDisabled()
+// })
+test('Disabled Button test', () =>{
     render(<App/>)
-    const headerEl = screen.getByText(/coding with eyüp/i);
-    // console.log(headerEl)
-    expect(headerEl).toBeInTheDocument();
-    expect(headerEl).toHaveTextContent('Coding With Eyüp');
+    const buttonEl = screen.getByTestId('btnDisabled',{
+        name:'disabled',
+    })
+    // expect(buttonEl).toHaveTextContent('Click')
+    expect(buttonEl).toHaveTextContent('Disabled')
+    expect(buttonEl).toBeDisabled()
 })
-
-test('Second header render correctly', () =>{
+test('Enabled Button test', () =>{
     render(<App/>)
-    const yellowEl = screen.getByText(/benim rengim sarı/i)
-    expect(yellowEl).toBeInTheDocument();
-    expect(yellowEl).toHaveTextContent('Benim rengim sarı');
-    expect(yellowEl).toHaveClass('yellow');
-
-})
-
-test('Button test', () =>{
-    render(<App/>)
-    const buttonEl = screen.getByRole('button')
-    expect(buttonEl).toHaveTextContent('Click')
-    // expect(buttonEl).toBeDisabled()
+    const buttonEl = screen.getByTestId('btnEnabled',{
+        name:'enabled',
+    })
+    // expect(buttonEl).toHaveTextContent('Click')
+    expect(buttonEl).toHaveTextContent('Enabled')
+    expect(buttonEl).not.toBeDisabled()
 })
