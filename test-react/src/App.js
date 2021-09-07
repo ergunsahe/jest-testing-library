@@ -2,12 +2,16 @@ import React from 'react'
 import "./App.css"
 import Counter from './components/Counter'
 import UserInput from './components/UserInput'
+import Videos from './components/Videos'
 
+
+const videos = ["udemy", "YouTube", "Tutorial"]
 const App = () => {
   return (
     <div className='App'>
       <Counter/>
       <UserInput/>
+      <Videos videos={videos}/>
       
     </div>
   )
