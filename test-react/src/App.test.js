@@ -89,39 +89,39 @@ import App from './App'
 
 //--------------------------------------------------------------
 
-beforeAll(() =>{
-    console.log('Before All')
-})
+// beforeAll(() =>{
+//     console.log('Before All')
+// })
 
-beforeEach(() =>{
-    // we can only one time call render app then it work for all test bo
-    console.log('Before Each')
-    render(<App/>)
-})
+// beforeEach(() =>{
+//     // we can only one time call render app then it work for all test bo
+//     console.log('Before Each')
+//     render(<App/>)
+// })
 
-afterAll(() =>{
-    console.log('After All')
-})
+// afterAll(() =>{
+//     console.log('After All')
+// })
 
-afterEach(() =>{
-    console.log('After Each')
-    // it's not necessary to call cleanup here anymore.it works automaticly
-    // cleanup()
-})
+// afterEach(() =>{
+//     console.log('After Each')
+//     // it's not necessary to call cleanup here anymore.it works automaticly
+//     // cleanup()
+// })
 
-test('Disabled Button test', () =>{
+// test('Disabled Button test', () =>{
     
-    const buttonEl = screen.getByTestId('btnDisabled',{
-        name:'disabled',
-    })
-    expect(buttonEl).toHaveTextContent('Disabled')
-    expect(buttonEl).toBeDisabled()
-})
-test('Enabled Button test', () =>{
+//     const buttonEl = screen.getByTestId('btnDisabled',{
+//         name:'disabled',
+//     })
+//     expect(buttonEl).toHaveTextContent('Disabled')
+//     expect(buttonEl).toBeDisabled()
+// })
+// test('Enabled Button test', () =>{
     
-    const buttonEl = screen.getByTestId('btnEnabled',{
-        name:'enabled',
-    })
-    expect(buttonEl).toHaveTextContent('Enabled')
-    expect(buttonEl).not.toBeDisabled()
-})
+//     const buttonEl = screen.getByTestId('btnEnabled',{
+//         name:'enabled',
+//     })
+//     expect(buttonEl).toHaveTextContent('Enabled')
+//     expect(buttonEl).not.toBeDisabled()
+// })
